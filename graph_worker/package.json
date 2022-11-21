@@ -1,0 +1,27 @@
+{
+  "name": "graph_worker",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/lowdb": "^1.0.9",
+    "@types/node": "^15.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "dotenv": "^9.0.2",
+    "ethers": "^5.4.0",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.12.4",
+    "lowdb": "^1.0.0"
+  }
+}

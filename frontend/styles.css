@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-npt-dark text-white;
+}
+
+:root {
+  --npt-dark: #141416;
+  --npt-lighter-dark: #161616;
+  --purple: #c172ff;
+  --cyan: #08e6f8;
+  --twitter-blue: #00acee;
+}
+
+.npd-border-gradient {
+  background: linear-gradient(to right, var(--npt-dark), var(--npt-dark)),
+    linear-gradient(to bottom right, var(--purple), var(--cyan));
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+.hover\:npd-border-gradient:hover {
+  background: linear-gradient(to right, var(--npt-dark), var(--npt-dark)),
+    linear-gradient(to top left, var(--purple), var(--cyan));
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+.bg-twitter-blue {
+  background-color: var(--twitter-blue);
+}
+
+.text-twitter-blue {
+  color: var(--twitter-blue);
+}

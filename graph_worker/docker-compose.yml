@@ -1,0 +1,6 @@
+version: "3"
+services:
+  graph_worker:
+    build: .
+    restart: always
+    env_file: .env

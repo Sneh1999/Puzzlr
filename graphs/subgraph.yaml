@@ -1,0 +1,99 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  # PieceFactory
+  - kind: ethereum/contract
+    name: PieceFactory
+    network: aurora-testnet
+    source:
+      startBlock: 105645951
+      address: "0xc7E782f9AcE1edF8EB9E687AEbEb75900FbB4041"
+      abi: PieceFactory
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: PieceFactory
+          file: ./abis/PieceFactory.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handlePieceTransfer
+      file: ./src/pieceFactoryMapping.ts
+  # PrizeFactory
+  - kind: ethereum/contract
+    name: PrizeFactory
+    network: aurora-testnet
+    source:
+      startBlock: 105645951
+      address: "0x7d16F8f198095ded19397671d9df8A428178A06B"
+      abi: PrizeFactory
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: PrizeFactory
+          file: ./abis/PrizeFactory.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handlePrizeTransfer
+      file: ./src/prizeFactoryMapping.ts
+  # PuzzleManager (SD Game 1)
+  - kind: ethereum/contract
+    name: PuzzleManager
+    network: aurora-testnet
+    source:
+      startBlock: 105645951
+      address: "0x9565E1217F74eD4dcE15A77eFa71310e86F08FBc"
+      abi: PuzzleManager
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - PuzzleStarted
+        - PuzzleSolved
+        - PuzzleEnded
+        - PackPurchaseRequested
+        - PackPurchaseCompleted
+        - PackUnboxed
+        - PieceMinted
+        - PrizeClaimed
+        - ListingCreated
+        - ListingSwapped
+        - ListingDeleted
+      abis:
+        - name: PuzzleManager
+          file: ./abis/PuzzleManager.json
+        - name: PieceFactory
+          file: ./abis/PieceFactory.json
+      eventHandlers:
+        - event: PuzzleStarted(uint256,uint256,uint256)
+          handler: handlePuzzleStarted
+        - event: PuzzleSolved(uint256,uint256,address,string)
+          handler: handlePuzzleSolved
+        - event: PuzzleEnded(uint256,uint256)
+          handler: handlePuzzleEnded
+        - event: PackPurchaseRequested(uint256,address,bytes32,uint8)
+          handler: handlePackPurchaseRequested
+        - event: PackPurchaseCompleted(bytes32)
+          handler: handlePackPurchaseCompleted
+        - event: PackUnboxed(bytes32,uint256[])
+          handler: handlePackUnboxed
+        - event: PieceMinted(address,uint256,string)
+          handler: handlePieceMinted
+        - event: PrizeClaimed(address,uint256,string)
+          handler: handlePrizeClaimed
+        - event: ListingCreated(address,uint256,string)
+          handler: handleListingCreated
+        - event: ListingSwapped(address,uint256,address,uint256,string)
+          handler: handleListingSwapped
+        - event: ListingDeleted(address,uint256,string)
+          handler: handleListingDeleted
+      file: ./src/puzzleManagerMapping.ts

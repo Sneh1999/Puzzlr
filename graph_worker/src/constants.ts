@@ -1,0 +1,1 @@
+export const FETCH_TRANSFERS_LIMIT = 200;

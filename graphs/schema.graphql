@@ -1,0 +1,79 @@
+enum PACK_EVENT_TYPE {
+  PACK_PURCHASE_REQUESTED
+  PACK_PURCHASE_COMPLETED
+  PACK_UNBOXED
+}
+
+enum PUZZLE_EVENT_TYPE {
+  PUZZLE_STARTED
+  PUZZLE_ENDED
+}
+
+enum LISTING_EVENT_TYPE {
+  LISTING_CREATED
+  LISTING_SWAPPED
+  LISTING_DELETED
+}
+
+enum TRANSFER_EVENT_TYPE {
+  PIECE_TRANSFER
+  PRIZE_TRANSFER
+}
+
+type Pack @entity {
+  id: ID!
+  puzzleGroupId: BigInt!
+  requestId: Bytes!
+  owner: Bytes!
+  tokenIds: [BigInt!]
+  tier: Int!
+  type: PACK_EVENT_TYPE!
+}
+
+type Puzzle @entity {
+  id: ID!
+  maxWinners: BigInt!
+  remainingWinners: BigInt!
+  puzzleGroupId: BigInt!
+  puzzleId: BigInt!
+  winners: [Bytes!]
+  prizes: [String!]
+  type: PUZZLE_EVENT_TYPE!
+}
+
+type Piece @entity {
+  id: ID!
+  owner: Bytes!
+  tokenId: BigInt!
+  piece: String!
+}
+
+type Prize @entity {
+  id: ID!
+  claimed: Boolean!
+  winner: Bytes!
+  tokenId: BigInt
+  prize: String!
+}
+
+type Listing @entity {
+  id: ID!
+  seller: Bytes!
+  sellerTokenId: BigInt!
+  sellerPiece: String!
+  wantsPieces: [String!]
+  buyer: Bytes
+  buyerTokenId: BigInt
+  buyerPiece: String
+  type: LISTING_EVENT_TYPE!
+  timestamp: String!
+}
+
+type Transfer @entity {
+  id: ID!
+  from: Bytes!
+  to: Bytes!
+  tokenId: BigInt!
+  type: TRANSFER_EVENT_TYPE!
+  timestamp: String!
+}

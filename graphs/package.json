@@ -1,0 +1,14 @@
+{
+  "name": "Puzzlr",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build subgraph.yaml",
+    "deploy": "graph deploy --product hosted-service --debug --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/  --access-token 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 jumbojagger/puzzlr   subgraph.yaml",
+    "clean": "docker-compose kill && docker-compose rm -f && rm -rf data"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.20.0",
+    "@graphprotocol/graph-ts": "0.20.0"
+  }
+}

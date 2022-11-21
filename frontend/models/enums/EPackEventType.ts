@@ -1,0 +1,5 @@
+export enum EPackEventType {
+  "PACK_PURCHASE_REQUESTED",
+  "PACK_PURCHASE_COMPLETED",
+  "PACK_UNBOXED",
+}

@@ -1,0 +1,13 @@
+node_modules/
+.env
+dist/
+mongo_data/
+.idea/
+scripts/
+package-lock.json
+src/output_images
+.arbitrum.env
+.matic.env
+.skale.env
+.staging.env
+build/
