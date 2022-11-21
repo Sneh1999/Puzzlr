@@ -7,8 +7,8 @@ dataSources:
     name: PieceFactory
     network: aurora-testnet
     source:
-      startBlock: 105645951
-      address: "0xc7E782f9AcE1edF8EB9E687AEbEb75900FbB4041"
+      startBlock: 105665249
+      address: "0x6925C3B2d23Cb442eF01725a9Dc62826B6F8fBd4"
       abi: PieceFactory
     mapping:
       kind: ethereum/events
@@ -28,8 +28,8 @@ dataSources:
     name: PrizeFactory
     network: aurora-testnet
     source:
-      startBlock: 105645951
-      address: "0x7d16F8f198095ded19397671d9df8A428178A06B"
+      startBlock: 105665249
+      address: "0x8f19FB132B011d09e29fAc6708f58a61c10C90D8"
       abi: PrizeFactory
     mapping:
       kind: ethereum/events
@@ -49,8 +49,8 @@ dataSources:
     name: PuzzleManager
     network: aurora-testnet
     source:
-      startBlock: 105645951
-      address: "0x9565E1217F74eD4dcE15A77eFa71310e86F08FBc"
+      startBlock: 105665249
+      address: "0x074eb4915A1E817646c411837Ee2992595c83084"
       abi: PuzzleManager
     mapping:
       kind: ethereum/events

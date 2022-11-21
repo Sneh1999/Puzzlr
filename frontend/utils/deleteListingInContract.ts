@@ -33,7 +33,6 @@ export async function deleteListingInContract(
           seller,
           {
             gasPrice: (await getProvider().getGasPrice()).mul(2),
-            nonce: txnResponse.nonce,
           }
         );
       } else {

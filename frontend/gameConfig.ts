@@ -20,11 +20,11 @@ const gameConfig: { [key: string]: IGameConfig } = {
     ],
     networkConfig: {
       aurora: {
-        managerAddress: "0x9565E1217F74eD4dcE15A77eFa71310e86F08FBc",
+        managerAddress: "0x074eb4915A1E817646c411837Ee2992595c83084",
         managerAbi: require("constants/abis/aurora/PuzzleManager.json"),
-        pieceFactoryAddress: "0xc7E782f9AcE1edF8EB9E687AEbEb75900FbB4041",
+        pieceFactoryAddress: "0x6925C3B2d23Cb442eF01725a9Dc62826B6F8fBd4",
         pieceFactoryAbi: require("constants/abis/aurora/PieceFactory.json"),
-        prizeFactoryAddress: "0x7d16F8f198095ded19397671d9df8A428178A06B",
+        prizeFactoryAddress: "0x8f19FB132B011d09e29fAc6708f58a61c10C90D8",
         prizeFactoryAbi: require("constants/abis/aurora/PrizeFactory.json"),
       },
     },

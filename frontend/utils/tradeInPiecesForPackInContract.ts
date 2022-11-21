@@ -23,26 +23,6 @@ export async function tradeInPiecesForPackInContract(
         gasPrice: (await getProvider().getGasPrice()).mul(2),
       }
     );
-    let count = 1;
-    let timeout = setInterval(async () => {
-      const txReceipt = await getProvider().getTransactionReceipt(
-        txnResponse.hash
-      );
-      if (!(txReceipt && txReceipt.blockNumber) && count <= 5) {
-        count++;
-        txnResponse = await managerContract.buyPackForTier(
-          puzzleGroupId,
-          recipient,
-          packTier,
-          {
-            gasPrice: (await getProvider().getGasPrice()).mul(2),
-            nonce: txnResponse.nonce,
-          }
-        );
-      } else {
-        clearInterval(timeout);
-      }
-    }, METATRANSACTION_TIMEOUT);
     return txnResponse.hash;
   } catch (error) {
     console.error(error);

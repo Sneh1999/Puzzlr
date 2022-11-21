@@ -44,7 +44,7 @@ async function main() {
     );
     await updatePackPurchase.wait();
     console.log("Updated Pack Purchase");
-    const setPackTierSize = await manager.setPackTierContentsSize("10", "0");
+    const setPackTierSize = await manager.setPackTierContentsSize("20", "0");
 
     await setPackTierSize.wait();
     console.log("Updated Pack Tier size");

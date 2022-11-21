@@ -24,7 +24,6 @@ export async function claimPrizeInContract(
         count++;
         txnResponse = await managerContract.claimPrize(recipient, puzzleId, {
           gasPrice: (await getProvider().getGasPrice()).mul(2),
-          nonce: txnResponse.nonce,
         });
       } else {
         clearInterval(timeout);
